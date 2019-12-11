@@ -63,8 +63,10 @@ export class HeroesService {
         return this.heroes;
     }
 
-    getHeroe(index: number) {
-        return this.heroes[index];
+    getHeroe(nombre: string): Heroe {
+        let heroesAux = JSON.parse(JSON.stringify(this.heroes));
+        heroesAux = heroesAux.filter( heroe => heroe.nombre == nombre );
+        return heroesAux[0];
     }
 
     buscarHeroes( termino: string ): Heroe[] {

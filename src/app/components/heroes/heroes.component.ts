@@ -20,8 +20,4 @@ export class HeroesComponent implements OnInit {
     // console.log( this.heroes );
   }
 
-  seeInfo(index: number): void {
-    this.router.navigate( ['/heroe', index] );
-  }
-
 }

@@ -4,8 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
-  templateUrl: './search.component.html',
-  styles: []
+  templateUrl: './search.component.html'
 })
 export class SearchComponent implements OnInit {
 
@@ -14,22 +13,17 @@ export class SearchComponent implements OnInit {
 
   constructor(private _heroesService: HeroesService,
               private activatedRoute: ActivatedRoute,
-              private router: Router) { }
+              private router: Router)
+  {
 
-  ngOnInit() {
-
-    this.activatedRoute.params.subscribe( params => {
-      this.termino = params.termino;
-    })
-
-    this.heroesResults = this._heroesService.buscarHeroes(this.termino);
-
-    console.log(this.heroesResults);
-    
   }
 
-  seeInfo(index: number): void {
-    this.router.navigate( ['/heroe', index] );
+  ngOnInit() {
+    this.activatedRoute.params.subscribe( params => {
+      this.termino = params.termino;
+      this.heroesResults = this._heroesService.buscarHeroes(this.termino);
+      console.log(this.heroesResults);
+    })
   }
 
 }
